@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuckyAds Checkout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">BuckyAds</div>
+        <div class="slogan">Place Your Order For A Hilarious Ad Created By Bucky Rogers</div>
+    </header>
+    
+    <main class="checkout-main">
+        <h1>Complete Your Purchase</h1>
+        <p class="description">Choose Your Ad Length Below<br>*After purchase I will give you a call to plan the ad!</p>
+        <form id="payment-form">
+            <label for="ad-length">Ad Length</label>
+            <select id="ad-length" name="ad_length" required>
+                <option value="15">15-second Ad ($500)</option>
+                <option value="30">30-second Ad ($850)</option>
+            </select>
+            
+            <label for="full-name">Full Name</label>
+            <input type="text" id="full-name" name="full_name" required>
+            
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" required>
+            
+            <label for="company-website">Company Website</label>
+            <input type="url" id="company-website" name="company_website" required>
+            
+            <label for="phone">Phone #</label>
+            <input type="tel" id="phone" name="phone" required>
+            
+            <button type="submit" class="cta-button">Proceed to Checkout</button>
+        </form>
+    </main>
+    
+    <footer>
+        <p>© 2025 BuckyAds. Powered by Stripe.</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('payment-form');
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            
+            const formData = {
+                ad_length: document.getElementById('ad-length').value,
+                full_name: document.getElementById('full-name').value,
+                company: document.getElementById('company').value,
+                company_website: document.getElementById('company-website').value,
+                phone: document.getElementById('phone').value
+            };
+            
+            try {
+                const response = await fetch('/api/create-session', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                
+                const data = await response.json();
+                window.location.href = data.url;
+            } catch (error) {
+                console.error('Error:', error);
+                // Add user-facing error message if needed, e.g., alert('Something went wrong. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>
