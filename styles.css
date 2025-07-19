@@ -151,22 +151,26 @@ footer {
         flex-direction: column;
         text-align: center;
         padding: 20px;
-        gap: 20px; /* Equal spacing between elements */
+        gap: 25px; /* Increased gap for equal spacing between logo, headline, and button */
     }
     
     .logo {
-        max-height: 50px; /* Slightly bigger logo */
-        margin-bottom: 20px; /* More space below logo */
+        max-height: 50px;
+        margin-bottom: 0; /* No extra margin, use gap */
     }
     
     .slogan {
-        font-size: 18px; /* Slightly smaller headline */
-        letter-spacing: -0.5px; /* More squeezed (tighter letters) */
-        margin: 0; /* No extra margin, use gap for spacing */
+        font-size: 19px; /* Slightly larger headline */
+        letter-spacing: -1px; /* More squeezed */
+        margin: 0;
+        max-width: 250px; /* Box to prevent wider than button (adjust if button width changes) */
+        line-height: 1.1; /* Tighter lines if it wraps */
     }
     
     .cta-button {
-        margin-top: 0; /* Use gap for spacing */
+        margin-top: 0;
+        width: auto; /* Keep button natural width, but can make full-width if needed */
+        padding: 12px 25px; /* Slightly smaller padding to match squeezed vibe */
     }
     
     .video-grid {
