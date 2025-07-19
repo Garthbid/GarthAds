@@ -160,8 +160,7 @@ footer {
     }
     
     .slogan {
-        font-size: 19px; /* Slightly larger headline */
-        letter-spacing: -1px; /* More squeezed */
+        font-size: 20px; /* Slightly larger headline */
         margin: 0;
         max-width: 250px; /* Box to prevent wider than button (adjust if button width changes) */
         line-height: 1.1; /* Tighter lines if it wraps */
