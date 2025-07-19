@@ -13,40 +13,49 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 30px 40px;
-    border-bottom: 1px solid #eee; /* Softer border for half-decent look */
+    border-bottom: 1px solid #eee;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .logo {
-    font-size: 28px;
-    font-weight: 600;
+    max-height: 40px;
+    max-width: 150px;
+    width: auto;
+    height: auto;
+    display: block;
 }
 
 .slogan {
+    font-family: 'Luckiest Guy', sans-serif;
+    color: #0033ff;
     font-size: 20px;
     text-align: center;
     flex: 1;
     margin: 0 20px;
+    text-transform: uppercase;
 }
 
 .cta-button {
-    background-color: #000;
+    font-family: 'Luckiest Guy', sans-serif;
+    background-color: #ff4d00;
     color: #fff;
     padding: 15px 30px;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 18px;
     border: none;
+    border-radius: 50px;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    box-shadow: 0 4px 8px rgba(255, 77, 0, 0.5);
+    text-transform: uppercase;
 }
 
 .cta-button:hover {
-    background-color: #111;
+    background-color: #ff6600;
     transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgba(255, 77, 0, 0.7);
 }
 
 .video-grid {
@@ -60,15 +69,16 @@ header {
 
 .video-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
-    border: 1px solid #eee; /* Softer border */
+    border-radius: 20px; /* Kept curve */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     transition: box-shadow 0.3s ease;
 }
 
 .video-wrapper:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle hover for engagement */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Neutral gray shadow on hover */
 }
 
 .video-wrapper iframe {
@@ -77,6 +87,7 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
+    border-radius: 20px; /* Match curve on iframe */
 }
 
 .checkout-main {
@@ -102,7 +113,7 @@ label {
     font-size: 16px;
 }
 
-input {
+input, select {
     width: 100%;
     padding: 12px;
     margin-top: 8px;
@@ -112,16 +123,18 @@ input {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     transition: border-color 0.3s ease;
+    appearance: none;
+    cursor: pointer;
 }
 
-input:focus {
+input:focus, select:focus {
     outline: none;
     border-color: #000;
 }
 
 form .cta-button {
-    margin-top: 30px; /* Added spacing from the last form field */
-    width: 100%; /* Full-width for better breathing room and mobile-friendliness */
+    margin-top: 30px;
+    width: 100%;
 }
 
 footer {
@@ -133,7 +146,6 @@ footer {
     margin: 0 auto;
 }
 
-/* Media query for mobile */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
