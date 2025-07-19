@@ -16,9 +16,9 @@
     </header>
     
     <main class="checkout-main">
-        <h1>Complete Your Purchase</h1>
-        <p class="description">Choose Your Ad Length Below<br>*After purchase I will give you a call to plan the ad!</p>
-        <form id="payment-form">
+        <h1>Get In Touch</h1>
+        <p class="description">Choose Your Ad Length Below<br>*After submission, I'll give you a call to plan the ad! Or email me directly at garthbid@gmail.com.</p>
+        <form action="https://script.google.com/macros/s/AKfycbyrFiNt7lKZxnzASfvQnpPyogwKsvRW2piy9dSS9SQHotLNjBg8q5zE5YfGGXp_nEak/exec" method="post"> <!-- Replace with URL from Step 2 -->
             <label for="ad-length">Ad Length</label>
             <select id="ad-length" name="ad_length" required>
                 <option value="15">15-second Ad ($500)</option>
@@ -37,45 +37,12 @@
             <label for="phone">Phone #</label>
             <input type="tel" id="phone" name="phone" required>
             
-            <button type="submit" class="cta-button">Proceed to Checkout</button>
+            <button type="submit" class="cta-button">Submit Inquiry</button>
         </form>
     </main>
     
     <footer>
-        <p>© 2025 BuckyAds. Powered by Stripe.</p>
+        <p>© 2025 BuckyAds. All rights reserved.</p>
     </footer>
-
-    <script>
-        const form = document.getElementById('payment-form');
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            
-            const formData = {
-                ad_length: document.getElementById('ad-length').value,
-                full_name: document.getElementById('full-name').value,
-                company: document.getElementById('company').value,
-                company_website: document.getElementById('company-website').value,
-                phone: document.getElementById('phone').value
-            };
-            
-            try {
-                const response = await fetch('/api/create-session', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
-                });
-                
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                
-                const data = await response.json();
-                window.location.href = data.url;
-            } catch (error) {
-                console.error('Error:', error);
-                // Add user-facing error message if needed, e.g., alert('Something went wrong. Please try again.');
-            }
-        });
-    </script>
 </body>
 </html>
