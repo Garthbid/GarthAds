@@ -6,19 +6,19 @@
     <title>BuckyAds Checkout</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Luckiest+Guy&display=swap" rel="stylesheet"> <!-- Added Luckiest Guy -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <div class="logo">BuckyAds</div>
-        <div class="slogan">Place Your Order For A Hilarious Ad Created By Bucky Rogers</div>
+        <img src="logo.png" alt="BuckyAds Logo" class="logo">
+        <div class="slogan">Place Your Order For A Hilarious Ad Created By Garth Studios</div>
     </header>
     
     <main class="checkout-main">
         <h1>Get In Touch</h1>
         <p class="description">Choose Your Ad Length Below<br>*After submission, I'll give you a call to plan the ad! Or email me directly at garthbid@gmail.com.</p>
-        <form action="https://script.google.com/macros/s/AKfycbyrFiNt7lKZxnzASfvQnpPyogwKsvRW2piy9dSS9SQHotLNjBg8q5zE5YfGGXp_nEak/exec" method="post"> <!-- Replace with URL from Step 2 -->
+        <form action="https://script.google.com/macros/s/AKfycbyrFiNt7lKZxnzASfvQnpPyogwKsvRW2piy9dSS9SQHotLNjBg8q5zE5YfGGXp_nEak/exec" method="post">
             <label for="ad-length">Ad Length</label>
             <select id="ad-length" name="ad_length" required>
                 <option value="15">15-second Ad ($500)</option>
@@ -37,7 +37,7 @@
             <label for="phone">Phone #</label>
             <input type="tel" id="phone" name="phone" required>
             
-            <button type="submit" class="cta-button">Submit Inquiry</button>
+            <button type="submit" class="cta-button">ORDER YOUR CUSTOM AD</button>
         </form>
     </main>
     
